@@ -9,7 +9,7 @@ node {
     DockerImageTag='latest'
 
     stage('Build App Image') {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub_ykozhin', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
             sh """
                 docker login ${DockerRepositoryAddress} -u $DOCKER_USER -p $DOCKER_PASSWORD
                 docker build -t ${DockerRepositoryAddress}/${DOCKER_USER}/${DockerImageName}:${DockerImageTag} ./image/
@@ -29,7 +29,7 @@ node {
 
     stage('Deploy to Openshift'){
         withCredentials([
-                        usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD'),
+                        usernamePassword(credentialsId: 'dockerhub_ykozhin', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD'),
                         file(credentialsId: 'oc-config', variable: 'OC_CONFIG')
                         ]){
                             RunAgent.inside("${jenkinsAgentRunArgs}") {
