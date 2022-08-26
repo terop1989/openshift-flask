@@ -6,6 +6,3 @@ service:
   port:
     port_name: http-flask
     port_number: 80
-
-ingress:
-  host: flask01.shift-learn.com
