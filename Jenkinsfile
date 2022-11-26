@@ -36,9 +36,10 @@ node {
                                 sh  """
                                     mkdir -p ~/.kube
                                     cat ${OC_CONFIG} > ~/.kube/config
-                                    helm install ${app_name} helm/ -n ${app_namespace} \
+                                    helm upgrade ${app_name} helm/ -n ${app_namespace} \
                                     --set container.image=${DockerRepositoryAddress}/${DOCKER_USER}/${DockerImageName}:${DockerImageTag} \
-                                    --create-namespace
+                                    --create-namespace \
+                                    --install
                                     """
                 }
             }
