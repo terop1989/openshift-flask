@@ -36,6 +36,7 @@ node {
                                 sh  """
                                     mkdir -p ~/.kube
                                     cat ${OC_CONFIG} > ~/.kube/config
+                                    kubectl create ns ${app_namespace}
                                     helm install ${app_name} helm/ -n ${app_namespace} \
                                     --set container.image=${DockerRepositoryAddress}/${DOCKER_USER}/${DockerImageName}:${DockerImageTag}
                                     """
