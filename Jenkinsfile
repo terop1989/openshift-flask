@@ -27,6 +27,7 @@ node {
     app_name="flask-app"
     app_namespace="helm-demo"
     app_service_port_number="80"
+    container_port="5000"
 
     stage('Deploy to Openshift'){
         withCredentials([
@@ -39,6 +40,7 @@ node {
                                     cat ${OC_CONFIG} > ~/.kube/config
                                     helm upgrade ${app_name} helm/ -n ${app_namespace} \
                                     --set container.image=${DockerRepositoryAddress}/${DOCKER_USER}/${DockerImageName}:${DockerImageTag} \
+                                    --set container.port=${container_port} \
                                     --set service.port.port_number=${app_service_port_number} \
                                     --create-namespace \
                                     --install

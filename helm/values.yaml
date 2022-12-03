@@ -1,7 +1,3 @@
-container:
-  image: terop1989/flask-test:v1
-  port: 5000
-
 service:
   port:
     port_name: http-flask
