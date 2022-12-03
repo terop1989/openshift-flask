@@ -5,4 +5,3 @@ container:
 service:
   port:
     port_name: http-flask
-    port_number: 80
