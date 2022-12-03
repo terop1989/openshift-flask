@@ -39,7 +39,7 @@ node {
                                     mkdir -p ~/.kube
                                     cat ${OC_CONFIG} > ~/.kube/config
                                     helm upgrade ${app_name} helm/ -n ${app_namespace} \
-                                     -set imageCredentials.registry=${DockerRepositoryAddress} \
+                                    --set imageCredentials.registry=${DockerRepositoryAddress} \
                                     --set imageCredentials.username=${DOCKER_USER} \
                                     --set imageCredentials.password=${DOCKER_PASSWORD} \
                                     --set container.image=${DockerRepositoryAddress}/${DOCKER_USER}/${DockerImageName}:${DockerImageTag} \
