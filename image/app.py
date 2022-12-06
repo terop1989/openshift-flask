@@ -3,11 +3,11 @@ import random
 from flask import Flask
 
 app = Flask(__name__)
-status_codes = ['200', '404']
+status_codes = [200, 404]
 
 @app.route('/')
 def route_root():
-    return ('Status...', int(random.choice(status_codes)))
+    return ('Status...', random.choice(status_codes))
 
 
 if __name__ == '__main__':
