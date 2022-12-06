@@ -3,7 +3,7 @@ import random
 from flask import Flask
 
 app = Flask(__name__)
-status_codes = ('200','404')
+status_codes = ['200', '404']
 
 @app.route('/')
 def route_root():
