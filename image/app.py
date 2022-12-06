@@ -7,7 +7,7 @@ status_codes = ('200','404')
 
 @app.route('/')
 def route_root():
-    return ('Status...', random.choice(status_codes))
+    return ('Status...', int(random.choice(status_codes)))
 
 
 if __name__ == '__main__':
