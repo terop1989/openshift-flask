@@ -23,11 +23,20 @@ spec:
         app: {{ .Release.Name }}
 
     spec:
+      imagePullSecrets:
+        - name: {{ .Release.Name }}-secret
 
       containers:
         - name: {{ .Release.Name }}-container
           image: {{ .Values.container.image }}
           ports:
             - containerPort: {{ .Values.container.port }}
-      imagePullSecrets:
-        - name: {{ .Release.Name }}-secret
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.container.port }}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 2
+            successThreshold: 1
+            failureThreshold: 3
