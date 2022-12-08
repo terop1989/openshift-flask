@@ -50,3 +50,10 @@ spec:
             timeoutSeconds: 2
             successThreshold: 1
             failureThreshold: 5
+          resources:
+            requests:
+              cpu: "0.001"
+              memory: "20Mi"
+            limits:
+              cpu: "0.01"
+              memory: "40Mi"
