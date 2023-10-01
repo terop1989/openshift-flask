@@ -28,6 +28,7 @@ node {
     app_namespace="flask-ns"
     app_service_port_number="80"
     container_port="5000"
+    ingress_host="flask-app.local.com"
 
     stage('Deploy to Openshift'){
         withCredentials([
@@ -45,6 +46,7 @@ node {
                                     --set container.image=${DockerRepositoryAddress}/${DOCKER_USER}/${DockerImageName}:${DockerImageTag} \
                                     --set container.port=${container_port} \
                                     --set service.port.port_number=${app_service_port_number} \
+                                    --set ingress.host=${ingress_host} \
                                     --create-namespace \
                                     --install
                                     """
