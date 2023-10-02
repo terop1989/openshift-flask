@@ -23,7 +23,7 @@ logger = get_stream_logger(app_name)
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  return render_template('index.html', title="Flask Site Main Page")
 
 @app.route('/health')
 def health():
