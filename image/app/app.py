@@ -22,11 +22,11 @@ status_codes = [200, 404]
 logger = get_stream_logger(app_name)
 
 @app.route('/')
-def route_root():
+def index():
   return render_template('index.html')
 
-@app.route('/random')
-def route_root():
+@app.route('/health')
+def health():
   status = random.choice(status_codes)
   logger.info({"message" : "calling root route"})
   return ('Status ' + str(status) + '\n', status)
