@@ -1,12 +1,5 @@
-<html>
-    <head>
-        <title>About Flask{% if title %} - {{ title }}{% endif %}</title>
-    </head>
-    <body>
-        <ul>
-            {% for m in menu %}
-                <li>{{ m }}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+<p>Содержимое главной страницы</p>
+{% endblock %}
