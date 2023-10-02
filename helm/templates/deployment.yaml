@@ -36,20 +36,20 @@ spec:
             httpGet:
               path: /health
               port: {{ .Values.container.port }}
-            initialDelaySeconds: 10
-            periodSeconds: 10
-            timeoutSeconds: 2
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 5
             successThreshold: 1
-            failureThreshold: 5
+            failureThreshold: 10
           readinessProbe:
             httpGet:
               path: /health
               port: {{ .Values.container.port }}
-            initialDelaySeconds: 10
-            periodSeconds: 10
-            timeoutSeconds: 2
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 5
             successThreshold: 1
-            failureThreshold: 5
+            failureThreshold: 10
           resources:
             requests:
               cpu: "0.001"
