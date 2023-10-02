@@ -27,7 +27,7 @@ def index():
   return render_template('index.html', menu=index_menu)
 
 @app.route('/about')
-def index():
+def about():
   return render_template('about.html', title="About Site", menu=index_menu)
 
 @app.route('/health')
