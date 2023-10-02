@@ -1,5 +1,5 @@
 import logging, random
-from flask import Flask
+from flask import Flask, render_template
 from pythonjsonlogger import jsonlogger
 
 app_name = "flask-app"
@@ -22,6 +22,10 @@ status_codes = [200, 404]
 logger = get_stream_logger(app_name)
 
 @app.route('/')
+def route_root():
+  return render_template('index.html')
+
+@app.route('/random')
 def route_root():
   status = random.choice(status_codes)
   logger.info({"message" : "calling root route"})
