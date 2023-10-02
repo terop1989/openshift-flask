@@ -24,7 +24,11 @@ index_menu = ["Setup", "First Application", "Feedback"]
 
 @app.route('/')
 def index():
-  return render_template('index.html', title="Flask Site Main Page", menu=index_menu)
+  return render_template('index.html', menu=index_menu)
+
+@app.route('/about')
+def index():
+  return render_template('about.html', title="About Site", menu=index_menu)
 
 @app.route('/health')
 def health():
