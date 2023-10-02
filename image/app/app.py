@@ -20,10 +20,11 @@ def get_stream_logger(logger_name):
 app = Flask(__name__)
 status_codes = [200, 404]
 logger = get_stream_logger(app_name)
+index_menu = ["Setup", "First Application", "Feedback"]
 
 @app.route('/')
 def index():
-  return render_template('index.html', title="Flask Site Main Page")
+  return render_template('index.html', title="Flask Site Main Page", menu=index_menu)
 
 @app.route('/health')
 def health():
