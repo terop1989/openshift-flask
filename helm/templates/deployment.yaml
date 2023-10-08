@@ -27,6 +27,10 @@ spec:
       imagePullSecrets:
         - name: {{ .Release.Name }}-secret
 
+      securityContext:
+        runAsUser: 65534
+        runAsGroup: 65534
+
       containers:
         - name: {{ .Release.Name }}-container
           image: {{ .Values.container.image }}
